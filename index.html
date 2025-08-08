@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8" />
@@ -7,7 +7,16 @@
     <title>Welcome to My Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
     <style>
-        /* Reset and base styles */
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --text-primary: #e6e6e6;
+            --text-secondary: #a3a3a3;
+            --border-color: #21262d;
+            --accent-color: #58a6ff;
+            --accent-hover: #1f6feb;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -16,8 +25,8 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: #fff;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -26,12 +35,13 @@
             text-align: center;
             padding: 2rem;
             overflow-x: hidden;
+            position: relative;
         }
 
         h1 {
             font-size: 3.5rem;
             margin-bottom: 1rem;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
         }
 
         p.lead {
@@ -39,7 +49,7 @@
             margin-bottom: 2rem;
             max-width: 600px;
             line-height: 1.5;
-            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+            color: var(--text-secondary);
         }
 
         .btn-group {
@@ -47,42 +57,41 @@
             gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
+            z-index: 1;
         }
 
         button {
-            background: #fff;
-            color: #764ba2;
+            background: var(--accent-color);
+            color: #fff;
             border: none;
             padding: 1rem 2.5rem;
             font-size: 1.1rem;
             font-weight: 700;
             border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 8px 15px rgba(118, 75, 162, 0.3);
+            box-shadow: 0 8px 15px rgba(88, 166, 255, 0.2);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
         button:hover {
-            background: #5a3e99;
-            color: #fff;
-            box-shadow: 0 15px 20px rgba(90, 62, 153, 0.6);
+            background: var(--accent-hover);
+            box-shadow: 0 15px 20px rgba(31, 111, 235, 0.4);
             transform: translateY(-3px);
         }
 
         button:focus {
             outline: none;
-            box-shadow: 0 0 0 3px rgba(118, 75, 162, 0.6);
+            box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.6);
         }
 
-        /* Animated underline effect */
         button::after {
             content: '';
             position: absolute;
             width: 100%;
             height: 3px;
-            background: #764ba2;
+            background: var(--accent-hover);
             bottom: 0;
             left: -100%;
             transition: left 0.3s ease;
@@ -93,7 +102,7 @@
             left: 0;
         }
 
-        /* Interactive background circles */
+        /* Background floating circles but in muted dark mode tones */
         .background-circles {
             position: fixed;
             top: 50%;
@@ -108,14 +117,14 @@
         .circle {
             position: absolute;
             border-radius: 50%;
-            opacity: 0.15;
+            opacity: 0.08;
             animation: float 6s ease-in-out infinite alternate;
         }
 
         .circle1 {
             width: 300px;
             height: 300px;
-            background: #ff6b6b;
+            background: #3fb950;
             top: 10%;
             left: 15%;
             animation-delay: 0s;
@@ -124,7 +133,7 @@
         .circle2 {
             width: 400px;
             height: 400px;
-            background: #f7d794;
+            background: #f78166;
             top: 70%;
             left: 25%;
             animation-delay: 2s;
@@ -133,7 +142,7 @@
         .circle3 {
             width: 350px;
             height: 350px;
-            background: #6a89cc;
+            background: #58a6ff;
             top: 40%;
             left: 75%;
             animation-delay: 4s;
@@ -149,7 +158,6 @@
             }
         }
 
-        /* Responsive */
         @media (max-width: 600px) {
             h1 {
                 font-size: 2.5rem;
@@ -195,7 +203,6 @@
         document.getElementById('loginBtn').addEventListener('click', () => {
             window.location.href = './auth/signin.html?redirect=false';
         });
-
         document.getElementById('signupBtn').addEventListener('click', () => {
             window.location.href = './auth/signup.html?redirect=false';
         });

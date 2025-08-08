@@ -22,15 +22,12 @@
             const errorMessageDiv = document.getElementById('error-message');
             const googleButton = document.getElementById('google-signin');
 
-            // Only redirect if coming from protected routes, not when intentionally visiting signin
-            const urlParams = new URLSearchParams(window.location.search);
-            const redirect = urlParams.get('redirect');
-            
-            authStateListener(user => {
-                if (user && redirect !== 'false') {
-                    window.location.href = "../pages/hero.html";
-                }
-            });
+            // Redirect if already signed in
+            // authStateListener(user => {
+            //     if (user) {
+            //         window.location.href = "../index.html";
+            //     }
+            // });
 
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
@@ -38,7 +35,7 @@
 
                 try {
                     const user = await loginWithEmail(emailInput.value, passwordInput.value);
-                    window.location.href = "../pages/hero.html";
+                    window.location.href = "../index.html";
                 } catch (error) {
                     errorMessageDiv.textContent = error.message;
                     errorMessageDiv.style.display = 'block';
@@ -49,7 +46,7 @@
                 errorMessageDiv.style.display = 'none';
                 try {
                     const user = await loginWithGoogle();
-                    window.location.href = "../pages/hero.html";
+                    window.location.href = "../index.html";
                 } catch (error) {
                     errorMessageDiv.textContent = error.message;
                     errorMessageDiv.style.display = 'block';
@@ -61,7 +58,7 @@
 
 <body class="auth-page">
     <div class="auth-container">
-        <h1 class="auth-logo">Toura</h1>
+        <h1 class="auth-logo">My Portfolio</h1>
         <h2>Sign In</h2>
         <form class="auth-form">
             <div class="auth-form-group">
