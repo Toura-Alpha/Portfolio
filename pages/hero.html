@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero | Toura</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Poppins and Inter from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        /* Extra styles for new features */
+        .typing-effect {
+            color: var(--primary-accent, #00bcd4);
+            font-weight: 600;
+            font-size: 1.2rem;
+            min-height: 1.5em;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .tech-stack {
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.1rem;
+        }
+
+        .tech-stack i {
+            margin: 0 0.3em;
+            font-size: 1.5em;
+            vertical-align: middle;
+        }
+
+        .hire-me {
+            margin-left: 1em;
+            background: var(--primary-accent, #00bcd4);
+            color: #fff;
+        }
+
+        .featured-project {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            padding: 1.2em;
+            margin: 2em 0 1em 0;
+            display: flex;
+            align-items: center;
+            gap: 1.2em;
+        }
+
+        .featured-project img {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .testimonials {
+            margin: 2em 0 1em 0;
+            padding: 1em;
+            background: rgba(0, 0, 0, 0.08);
+            border-radius: 8px;
+        }
+
+        .testimonial {
+            font-style: italic;
+            margin-bottom: 0.5em;
+        }
+
+        .scroll-indicator {
+            display: flex;
+            justify-content: center;
+            margin-top: 2em;
+            animation: bounce 1.5s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(10px);
+            }
+        }
+
+        .intro-video {
+            margin-top: 1.5em;
+            border-radius: 10px;
+            overflow: hidden;
+            max-width: 320px;
+        }
+
+        @media (max-width: 700px) {
+            .featured-project {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .intro-video {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link"
+        style="position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to main content</a>
+    <div class="container">
+        <header class="header">
+            <a href="hero.html" class="logo">Toura</a>
+            <!-- Hamburger menu for mobile -->
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-links">
+                <a href="hero.html" class="active">Home</a>
+                <a href="about.html" >About</a>
+                <a href="skills.html">Skills</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+                <button class="signout-button cta-button" style="margin: 0; padding: 0.5rem 1rem;">Sign Out</button>
+            </nav>
+            <button class="theme-toggle" aria-label="Toggle theme">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zM12 22a9.999 9.999 0 009.9-10h-20A9.999 9.999 0 0012 22z" />
+                </svg>
+            </button>
+        </header>
+    </div>
+
+    <main id="main-content">
+        <section class="hero-section container">
+            <div class="hero-content">
+                <h1>Hello, I'm <span style="color: var(--primary-accent);">Sterone Nombie</span></h1>
+                <span class="typing-effect" id="typing"></span>
+                <p>A full-stack developer with a passion for building innovative and scalable web applications.</p>
+                <a href="../assets/resume.pdf" class="cta-button" download>Download Resume</a>
+                <a href="contact.html" class="cta-button hire-me">Hire Me</a>
+                <div class="social-links">
+                    <a href="https://github.com" target="_blank" aria-label="GitHub Profile"><i
+                            class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn Profile"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="https://twitter.com" target="_blank" aria-label="Twitter Profile"><i
+                            class="fab fa-twitter"></i></a>
+                </div>
+                <div class="tech-stack">
+                    <span>Tech Stack:</span>
+                    <i class="fab fa-js-square" title="JavaScript"></i>
+                    <i class="fab fa-react" title="React"></i>
+                    <i class="fab fa-node-js" title="Node.js"></i>
+                    <i class="fab fa-python" title="Python"></i>
+                </div>
+                <div class="intro-video">
+                    <video width="100%" controls poster="../assets/images/placeholder.jpg">
+                        <source src="../assets/videos/intro.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="featured-project">
+                    <img src="../assets/images/project-thumb.jpg" alt="Featured Project Thumbnail"
+                        onerror="this.onerror=null;this.src='https://placehold.co/80x80/161b22/a3a3a3?text=Project';">
+                    <div>
+                        <strong>Featured Project: Portfolio Website</strong>
+                        <p style="margin:0.3em 0;">A modern, responsive portfolio built with React and Node.js.</p>
+                        <a href="projects.html" class="cta-button" style="padding:0.3em 0.8em;font-size:0.95em;">View
+                            Project</a>
+                    </div>
+                </div>
+                <div class="testimonials">
+                    <div class="testimonial">"Toura is a fantastic developer! Highly recommended." – Jane Smith</div>
+                    <div class="testimonial">"Delivered our project on time and exceeded expectations." – Mike Lee</div>
+                </div>
+                <div class="scroll-indicator" aria-hidden="true">
+                    <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M12 5v14M19 12l-7 7-7-7" />
+                    </svg>
+                </div>
+            </div>
+            <div class="hero-image-container">
+                <img src="../assets/images/placeholder.jpg" alt="A professional photo of Toura" class="hero-image"
+                    onerror="this.onerror=null;this.src='https://placehold.co/500x500/161b22/a3a3a3?text=Profile+Pic';">
+            </div>
+        </section>
+    </main>
+    <script type="module" src="../js/app.js" defer></script>
+    <script>
+        // Typing effect for roles/skills
+        const roles = [
+            "Full-Stack Developer",
+            "React & Node.js Enthusiast",
+            "Open Source Contributor",
+            "UI/UX Advocate"
+        ];
+        let roleIndex = 0, charIndex = 0, typing = true;
+        const typingEl = document.getElementById('typing');
+        function typeRole() {
+            if (!typingEl) return;
+            if (typing) {
+                if (charIndex < roles[roleIndex].length) {
+                    typingEl.textContent += roles[roleIndex][charIndex++];
+                    setTimeout(typeRole, 70);
+                } else {
+                    typing = false;
+                    setTimeout(typeRole, 1200);
+                }
+            } else {
+                if (charIndex > 0) {
+                    typingEl.textContent = roles[roleIndex].slice(0, --charIndex);
+                    setTimeout(typeRole, 30);
+                } else {
+                    typing = true;
+                    roleIndex = (roleIndex + 1) % roles.length;
+                    setTimeout(typeRole, 400);
+                }
+            }
+        }
+        typeRole();
+    </script>
+</body>
+
+</html>

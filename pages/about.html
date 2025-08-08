@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | My Portfolio</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/modules/_about.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <a href="hero.html" class="logo">Toura</a>
+            <!-- Hamburger menu for mobile -->
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-links">
+                <a href="hero.html">Home</a>
+                <a href="about.html" class="active">About</a>
+                <a href="skills.html">Skills</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+                <button class="signout-button cta-button" style="margin: 0; padding: 0.5rem 1rem;">Sign Out</button>
+            </nav>
+            <button class="theme-toggle" aria-label="Toggle theme">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zM12 22a9.999 9.999 0 009.9-10h-20A9.999 9.999 0 0012 22z" />
+                </svg>
+            </button>
+        </header>
+    </div>
+
+    <main>
+        <section class="about-section container">
+            <div class="about-header">
+                <h2>About Me</h2>
+                <p class="bio-text">I'm a passionate and driven developer with a strong foundation in both front-end and
+                    back-end technologies. I thrive on solving complex problems and creating intuitive, user-friendly
+                    experiences. When I'm not coding, you can find me hiking, reading, or experimenting with new
+                    technologies.</p>
+            </div>
+
+            <div class="about-cards">
+                <div class="about-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h4>Full-Stack Developer</h4>
+                    <p>Experienced in building scalable web apps using modern frameworks and cloud services.</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h4>Problem Solver</h4>
+                    <p>Enjoys tackling challenging problems and optimizing for performance and usability.</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-mountain"></i>
+                    <h4>Adventurer</h4>
+                    <p>Always learning, exploring new tech, and seeking inspiration in the outdoors.</p>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item left" data-title="Started My Coding Journey"
+                    data-details="Began learning programming fundamentals with Python and C++, focusing on data structures and algorithms.">
+                    <div class="timeline-content">
+                        <h3>2020</h3>
+                        <h4>Started My Coding Journey</h4>
+                        <p>Began learning programming fundamentals with Python and C++, focusing on data structures and
+                            algorithms.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right" data-title="Mastered Front-End Development"
+                    data-details="Dived deep into HTML, CSS, and JavaScript, building my first interactive websites and modern UI designs.">
+                    <div class="timeline-content">
+                        <h3>2021</h3>
+                        <h4>Mastered Front-End Development</h4>
+                        <p>Dived deep into HTML, CSS, and JavaScript, building my first interactive websites and modern
+                            UI designs.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left" data-title="Explored Back-End Technologies"
+                    data-details="Gained proficiency in Node.js, Express, and MongoDB, enabling me to build full-stack applications with REST APIs.">
+                    <div class="timeline-content">
+                        <h3>2022</h3>
+                        <h4>Explored Back-End Technologies</h4>
+                        <p>Gained proficiency in Node.js, Express, and MongoDB, enabling me to build full-stack
+                            applications with REST APIs.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right" data-title="Joined My First Tech Company"
+                    data-details="Worked as a junior developer on a team, contributing to the development of a large-scale e-commerce platform.">
+                    <div class="timeline-content">
+                        <h3>2023</h3>
+                        <h4>Joined My First Tech Company</h4>
+                        <p>Worked as a junior developer on a team, contributing to the development of a large-scale
+                            e-commerce platform.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Timeline Details Modal -->
+    <div class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3></h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p></p>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="../js/app.js" defer></script>
+</body>
+
+</html>

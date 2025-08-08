@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Toura</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style></style>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <a href="hero.html" class="logo">Toura</a>
+            <!-- Hamburger menu for mobile -->
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-links">
+                <a href="hero.html">Home</a>
+                <a href="about.html" >About</a>
+                <a href="skills.html">Skills</a>
+                <a href="projects.html" class="active">Projects</a>
+                <a href="contact.html">Contact</a>
+                <button class="signout-button cta-button" style="margin: 0; padding: 0.5rem 1rem;">Sign Out</button>
+            </nav>
+            <button class="theme-toggle" aria-label="Toggle theme">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zM12 22a9.999 9.999 0 009.9-10h-20A9.999 9.999 0 0012 22z" />
+                </svg>
+            </button>
+        </header>
+    </div>
+
+    <main>
+        <!-- Filter Bar -->
+        <div class="projects-filter-bar">
+            <button class="projects-filter-btn active">All</button>
+            <button class="projects-filter-btn">Web</button>
+            <button class="projects-filter-btn">Mobile</button>
+            <button class="projects-filter-btn">UI/UX</button>
+        </div>
+
+        <section class="projects-section container">
+            <div class="projects-header">
+                <h2>My Projects</h2>
+                <p>A collection of my work, showcasing my skills and expertise.</p>
+            </div>
+            <div class="project-grid">
+                <!-- Project Card 1 -->
+                <div class="project-card">
+                    <button class="quick-view-btn" title="Quick View"><i class="fas fa-eye"></i></button>
+                    <img src="../assets/images/project1.jpg" alt="Project 1 Screenshot"
+                        onerror="this.onerror=null;this.src='https://placehold.co/400x200/161b22/a3a3a3?text=Project+1';">
+                    <div class="project-card-content">
+                        <h3>E-commerce Platform</h3>
+                        <div class="project-tech-stack">
+                            <span class="project-tech-badge">React</span>
+                            <span class="project-tech-badge">Node.js</span>
+                            <span class="project-tech-badge">MongoDB</span>
+                        </div>
+                        <p>A full-stack e-commerce site with user authentication, product management, and a secure
+                            checkout process.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="Live Demo"><i
+                                    class="fas fa-external-link-alt"></i></a>
+                            <a href="#" class="project-link" aria-label="GitHub Repo"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="project-card">
+                    <button class="quick-view-btn" title="Quick View"><i class="fas fa-eye"></i></button>
+                    <img src="../assets/images/project2.jpg" alt="Project 2 Screenshot"
+                        onerror="this.onerror=null;this.src='https://placehold.co/400x200/161b22/a3a3a3?text=Project+2';">
+                    <div class="project-card-content">
+                        <h3>Social Media Clone</h3>
+                        <div class="project-tech-stack">
+                            <span class="project-tech-badge">Vue</span>
+                            <span class="project-tech-badge">Firebase</span>
+                            <span class="project-tech-badge">Tailwind</span>
+                        </div>
+                        <p>A web application mimicking social media features like posts, comments, and user profiles.
+                        </p>
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="Live Demo"><i
+                                    class="fas fa-external-link-alt"></i></a>
+                            <a href="#" class="project-link" aria-label="GitHub Repo"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 3 -->
+                <div class="project-card">
+                    <button class="quick-view-btn" title="Quick View"><i class="fas fa-eye"></i></button>
+                    <img src="../assets/images/project3.jpg" alt="Project 3 Screenshot"
+                        onerror="this.onerror=null;this.src='https://placehold.co/400x200/161b22/a3a3a3?text=Project+3';">
+                    <div class="project-card-content">
+                        <h3>Task Management App</h3>
+                        <div class="project-tech-stack">
+                            <span class="project-tech-badge">Angular</span>
+                            <span class="project-tech-badge">Express</span>
+                            <span class="project-tech-badge">MySQL</span>
+                        </div>
+                        <p>A simple and intuitive task management tool for individuals and small teams.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="Live Demo"><i
+                                    class="fas fa-external-link-alt"></i></a>
+                            <a href="#" class="project-link" aria-label="GitHub Repo"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Example: Add more project cards as needed -->
+                <div class="project-card">
+                    <button class="quick-view-btn" title="Quick View"><i class="fas fa-eye"></i></button>
+                    <img src="https://placehold.co/400x200/161b22/a3a3a3?text=Portfolio+Site"
+                        alt="Portfolio Screenshot">
+                    <div class="project-card-content">
+                        <h3>Personal Portfolio</h3>
+                        <div class="project-tech-stack">
+                            <span class="project-tech-badge">HTML</span>
+                            <span class="project-tech-badge">CSS</span>
+                            <span class="project-tech-badge">JavaScript</span>
+                        </div>
+                        <p>My own portfolio website, built to showcase my projects, skills, and contact information.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="Live Demo"><i
+                                    class="fas fa-external-link-alt"></i></a>
+                            <a href="#" class="project-link" aria-label="GitHub Repo"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Project Details Modal -->
+    <div class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Project Title</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <!-- Content will be injected here by JavaScript -->
+            </div>
+        </div>
+    </div>
+</body>
+    <script type="module" src="../js/app.js" defer></script>
+</html>
