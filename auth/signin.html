@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In | Toura</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script type="module" src="../js/app.js" defer></script>
+    <script type="module">
+        import { loginWithEmail, loginWithGoogle, authStateListener } from '../js/modules/auth.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.querySelector('.auth-form');
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+            const errorMessageDiv = document.getElementById('error-message');
+            const googleButton = document.getElementById('google-signin');
+
+            // Redirect if already signed in
+            authStateListener(user => {
+                if (user) {
+                    window.location.href = "../index.html";
+                }
+            });
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                errorMessageDiv.style.display = 'none';
+
+                try {
+                    const user = await loginWithEmail(emailInput.value, passwordInput.value);
+                    window.location.href = "../index.html";
+                } catch (error) {
+                    errorMessageDiv.textContent = error.message;
+                    errorMessageDiv.style.display = 'block';
+                }
+            });
+
+            googleButton.addEventListener('click', async () => {
+                errorMessageDiv.style.display = 'none';
+                try {
+                    const user = await loginWithGoogle();
+                    window.location.href = "../index.html";
+                } catch (error) {
+                    errorMessageDiv.textContent = error.message;
+                    errorMessageDiv.style.display = 'block';
+                }
+            });
+        });
+    </script>
+</head>
+
+<body class="auth-page">
+    <div class="auth-container">
+        <h1 class="auth-logo">Toura</h1>
+        <h2>Sign In</h2>
+        <form class="auth-form">
+            <div class="auth-form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="auth-form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <p id="error-message" style="display: none; color: red;"></p>
+            <button type="submit" class="auth-button">Sign In</button>
+        </form>
+        <button id="google-signin" class="auth-button" style="background-color: #4285f4; margin-top: 1rem;">
+            <i class="fab fa-google"></i> Sign in with Google
+        </button>
+        <p class="auth-switch-link">Don't have an account? <a href="signup.html">Sign Up</a></p>
+        <p class="auth-switch-link">Forgot your password? <a href="resetpassword.html">Reset it here</a></p>
+    </div>
+</body>
+
+</html>

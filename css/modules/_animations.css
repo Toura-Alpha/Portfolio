@@ -1,0 +1,117 @@
+/*
+ * css/modules/_animations.css
+ * This file contains all keyframe animations used in the portfolio.
+ */
+
+/* Preloader Animations */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+/* Landing Page Animations */
+@keyframes pulse-gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes flip {
+    0% {
+        transform: rotateY(0);
+    }
+
+    50% {
+        transform: rotateY(180deg);
+    }
+
+    100% {
+        transform: rotateY(0);
+    }
+}
+
+/* Skill Bar Animation */
+@keyframes fill-bar {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: var(--skill-level, 80%);
+    }
+}
+
+/* Hero Image Parallax */
+.hero-image-container:hover .hero-image {
+    animation: hero-hover-pulse 1s infinite alternate;
+}
+
+@keyframes hero-hover-pulse {
+    from {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(46, 208, 110, 0.4);
+    }
+
+    to {
+        transform: scale(1.03);
+        box-shadow: 0 0 20px rgba(46, 208, 110, 0.8);
+    }
+}
+
+/* Modal Animations */
+@keyframes modal-fade-in {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Button Ripple Effect */
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}

@@ -1,0 +1,247 @@
+/*
+ * css/modules/_components.css
+ * This file defines the styling for reusable components like buttons,
+ * cards, modals, and forms.
+ */
+
+.cta-button {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: var(--primary-accent);
+    color: var(--bg-primary);
+    border-radius: 999px;
+    box-shadow: 0 4px 15px rgba(46, 208, 110, 0.4);
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+    border: 2px solid transparent;
+    letter-spacing: 0.02em;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(46, 208, 110, 0.6);
+    background-color: transparent;
+    color: var(--primary-accent);
+    border-color: var(--primary-accent);
+}
+
+.auth-button {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: var(--primary-accent);
+    color: var(--bg-primary);
+    border-radius: 8px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.auth-button:hover {
+    background-color: var(--secondary-accent);
+    transform: translateY(-2px);
+}
+
+.theme-toggle {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    box-shadow: 0 2px 8px rgba(46, 208, 110, 0.08);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    background: var(--primary-accent);
+}
+
+.theme-toggle svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    fill: var(--text-primary);
+    transition: fill 0.2s ease;
+}
+
+/* Card components */
+.project-card,
+.skill-card,
+.contact-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    transition: transform 0.3s cubic-bezier(.4, 2, .6, 1), box-shadow 0.3s cubic-bezier(.4, 2, .6, 1);
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 2px 12px rgba(46, 208, 110, 0.07);
+}
+
+.project-card:hover,
+.skill-card:hover,
+.contact-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 12px 32px rgba(46, 208, 110, 0.18);
+}
+
+.project-card .quick-view-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--primary-accent);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 2.2rem;
+    height: 2.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    opacity: 0.85;
+    transition: background 0.2s, opacity 0.2s;
+    z-index: 2;
+}
+
+.project-card .quick-view-btn:hover {
+    background: var(--secondary-accent);
+    opacity: 1;
+}
+
+/* Modal components */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: var(--bg-primary);
+    border-radius: 12px;
+    width: 90vw;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(46, 208, 110, 0.12);
+    border: 2px solid var(--primary-accent);
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.modal-close {
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--text-secondary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.modal-close:hover {
+    color: var(--primary-accent);
+}
+
+/* Skill card flip animation */
+.skill-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s cubic-bezier(.4, 2, .6, 1);
+    transform-style: preserve-3d;
+}
+
+.skill-card:hover .skill-card-inner {
+    transform: rotateY(180deg);
+}
+
+.skill-front,
+.skill-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    border-radius: 14px;
+    background: var(--bg-primary);
+    box-shadow: 0 4px 24px rgba(46, 208, 110, 0.07);
+    border: 1px solid var(--border-color);
+}
+
+.skill-back {
+    transform: rotateY(180deg);
+}
+
+/* Skill progress bar */
+.skill-progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: var(--bg-secondary);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 2px 8px rgba(46, 208, 110, 0.08);
+}
+
+.skill-progress-fill {
+    height: 100%;
+    background-color: var(--primary-accent);
+    animation: fill-bar 1.5s cubic-bezier(.4, 2, .6, 1) forwards;
+    width: 0;
+}
+
+/* Preloader styling */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--bg-primary);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease;
+}

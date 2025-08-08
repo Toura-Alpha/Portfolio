@@ -1,0 +1,288 @@
+/* About Section */
+.about-section {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    padding: 2.5rem 2rem 3rem 2rem;
+    background: linear-gradient(120deg, var(--bg-secondary) 60%, var(--primary-accent) 100%);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(46, 208, 110, 0.08);
+    animation: fadeIn 1.2s;
+}
+
+/* About Header */
+.about-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    animation: fadeInDown 1s;
+}
+
+.about-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -1px;
+}
+
+.bio-text {
+    color: var(--text-secondary);
+    font-size: 1.15rem;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* About Cards */
+.about-cards {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.about-card {
+    background: var(--bg-primary);
+    border-radius: 14px;
+    box-shadow: 0 4px 24px rgba(46, 208, 110, 0.07);
+    padding: 2rem 1.5rem;
+    min-width: 220px;
+    max-width: 300px;
+    flex: 1 1 220px;
+    text-align: center;
+    transition: transform 0.25s, box-shadow 0.25s;
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.about-card:hover {
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: 0 12px 32px rgba(46, 208, 110, 0.18);
+}
+
+.about-card i {
+    font-size: 2.2rem;
+    color: var(--primary-accent);
+    margin-bottom: 1rem;
+    display: block;
+    filter: drop-shadow(0 2px 6px rgba(46, 208, 110, 0.12));
+}
+
+.about-card h4 {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.about-card p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    margin: 3rem auto 0 auto;
+    max-width: 900px;
+    padding: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--primary-accent) 0%, var(--secondary-accent) 100%);
+    transform: translateX(-50%);
+    z-index: 0;
+    border-radius: 2px;
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 1.5rem 2rem;
+    box-sizing: border-box;
+    z-index: 1;
+    animation: fadeIn 1s;
+}
+
+.timeline-item.left {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item.right {
+    left: 50%;
+    text-align: left;
+}
+
+.timeline-content {
+    background: var(--bg-primary);
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(46, 208, 110, 0.07);
+    padding: 1.5rem 1.2rem;
+    border: 1px solid var(--border-color);
+    position: relative;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.timeline-item.left .timeline-content {
+    margin-right: 2.5rem;
+}
+
+.timeline-item.right .timeline-content {
+    margin-left: 2.5rem;
+}
+
+.timeline-item h3 {
+    font-size: 1.1rem;
+    color: var(--primary-accent);
+    margin-bottom: 0.2rem;
+}
+
+.timeline-item h4 {
+    font-size: 1.15rem;
+    margin-bottom: 0.4rem;
+    font-weight: 700;
+}
+
+.timeline-item p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    top: 2rem;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--primary-accent);
+    border: 3px solid var(--bg-primary);
+    z-index: 2;
+    box-shadow: 0 0 0 4px rgba(46, 208, 110, 0.15);
+}
+
+.timeline-item.left::after {
+    right: -9px;
+}
+
+.timeline-item.right::after {
+    left: -9px;
+}
+
+/* Responsive Timeline */
+@media (max-width: 900px) {
+    .timeline {
+        padding: 0;
+    }
+
+    .timeline-item,
+    .timeline-item.left,
+    .timeline-item.right {
+        width: 100%;
+        left: 0;
+        text-align: left;
+    }
+
+    .timeline-item.left .timeline-content,
+    .timeline-item.right .timeline-content {
+        margin: 0 0 2rem 2.5rem;
+    }
+
+    .timeline::before {
+        left: 18px;
+        transform: none;
+    }
+
+    .timeline-item::after {
+        left: 0;
+        right: auto;
+    }
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-content {
+    background: var(--bg-primary);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(46, 208, 110, 0.12);
+    border: 2px solid var(--primary-accent);
+    width: 90vw;
+    max-width: 400px;
+    padding: 2rem;
+    position: relative;
+    animation: fadeIn 0.4s;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.modal-close {
+    font-size: 2rem;
+    color: var(--text-secondary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.modal-close:hover {
+    color: var(--primary-accent);
+}
+
+.modal-body {
+    color: var(--text-primary);
+    font-size: 1.05rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

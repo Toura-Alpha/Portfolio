@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <!-- Main and module CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- Fonts and icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script type="module" src="./js/app.js" defer></script>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader" class="flex-center">
+        <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="28" stroke="var(--primary-accent)" stroke-width="4" stroke-linecap="round"
+                stroke-dasharray="180" stroke-dashoffset="180">
+                <animate attributeName="stroke-dashoffset" from="180" to="0" dur="2s" repeatCount="indefinite" />
+            </circle>
+        </svg>
+    </div>
+
+    <!-- Animated background gradient -->
+    <div class="background-effect"></div>
+
+    <main class="landing-page">
+        <header class="header landing-header">
+            <a href="#" class="logo">My Portfolio</a>
+            <nav class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="./pages/about.html">About</a>
+                <a href="./pages/skills.html">Skills</a>
+                <a href="./pages/projects.html">Projects</a>
+                <a href="./pages/contact.html">Contact</a>
+            </nav>
+            <button class="theme-toggle" aria-label="Toggle theme">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                        d="M12 2a10 10 0 1010 10A10 10 0 0012 2zM12 22a9.999 9.999 0 009.9-10h-20A9.999 9.999 0 0012 22z" />
+                </svg>
+            </button>
+        </header>
+        <div class="landing-content">
+            <h1 class="tagline">
+                I'm a <span class="typewriter-text"></span>
+            </h1>
+            <p class="landing-subtext">
+                Welcome to my digital space. Explore my work, skills, and journey as a developer.
+            </p>
+            <a href="./pages/hero.html" class="cta-button">Explore My Work</a>
+            <div class="landing-socials">
+                <a href="https://github.com/" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/" target="_blank" aria-label="LinkedIn"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

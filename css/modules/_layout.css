@@ -1,0 +1,274 @@
+/*
+ * css/modules/_layout.css
+ * This file defines the primary layout and structural styles for all pages.
+ */
+
+main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- NAVIGATION BAR --- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+    flex-wrap: wrap;
+    gap: 1rem;
+    position: relative;
+    z-index: 10;
+    background: transparent;
+}
+
+/* Hamburger menu for mobile */
+.header .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--primary-accent);
+    cursor: pointer;
+    margin-left: auto;
+    z-index: 20;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    transition: max-height 0.3s cubic-bezier(.4, 2, .6, 1);
+}
+
+.nav-links a {
+    margin-left: 2rem;
+    font-weight: 600;
+    font-size: 1.08rem;
+    color: var(--text-primary);
+    padding: 0.5rem 1.1rem;
+    border-radius: 999px;
+    transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+    position: relative;
+    z-index: 1;
+}
+
+.logo {
+    font-size: 1.7rem;
+    font-weight: bold;
+    letter-spacing: -1px;
+    color: var(--primary-accent);
+    text-shadow: 0 2px 8px rgba(46, 208, 110, 0.10);
+    transition: color 0.2s;
+}
+
+.logo:hover,
+.logo:focus {
+    color: var(--secondary-accent);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    margin-left: 2rem;
+    font-weight: 600;
+    font-size: 1.08rem;
+    color: var(--text-primary);
+    padding: 0.5rem 1.1rem;
+    border-radius: 999px;
+    transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+    position: relative;
+    z-index: 1;
+}
+
+.nav-links a.active,
+.nav-links a:hover,
+.nav-links a:focus {
+    color: #fff;
+    background: linear-gradient(90deg, var(--primary-accent) 60%, var(--secondary-accent) 100%);
+    box-shadow: 0 2px 12px rgba(46, 208, 110, 0.10);
+    outline: none;
+    text-decoration: none;
+}
+
+.signout-button {
+    margin-left: 2rem;
+    font-size: 1rem;
+    padding: 0.5rem 1.2rem;
+    border-radius: 999px;
+    background: var(--secondary-accent);
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(134, 87, 240, 0.10);
+}
+
+.signout-button:hover,
+.signout-button:focus {
+    background: var(--primary-accent);
+    color: #fff;
+    outline: none;
+}
+
+/* Responsive Nav */
+@media (max-width: 900px) {
+    .header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+        padding: 1.2rem 0 0.8rem 0;
+    }
+
+    .header .nav-toggle {
+        display: block;
+        position: absolute;
+        top: 1.2rem;
+        right: 1.2rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        background: var(--bg-secondary);
+        border-radius: 12px;
+        margin-top: 1rem;
+        box-shadow: 0 4px 24px rgba(46, 208, 110, 0.07);
+    }
+    .nav-links.open {
+        max-height: 500px;
+        padding: 1rem 0;
+        transition: max-height 0.4s cubic-bezier(.4, 2, .6, 1);
+    }
+
+    .nav-links a,
+    .signout-button {
+        margin: 0.5rem 1.5rem;
+        width: auto;
+        text-align: left;
+    }
+}
+
+/* --- END NAVIGATION BAR --- */
+
+.landing-page {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.background-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--primary-accent) 50%, var(--bg-primary) 100%);
+    background-size: 400% 400%;
+    animation: pulse-gradient 20s ease infinite;
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.hero-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: 2rem;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.social-links {
+    margin-top: 1.5rem;
+}
+
+.social-links a {
+    margin: 0 0.75rem;
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.social-links a:hover {
+    color: var(--primary-accent);
+    transform: translateY(-3px);
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: var(--border-color);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+}
+
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.auth-container {
+    max-width: 400px;
+    width: 100%;
+    padding: 2rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.auth-form-group {
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.auth-form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.auth-switch-link {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.contact-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .hero-section {
+        grid-template-columns: 1fr 1fr;
+        text-align: left;
+    }
+
+    .contact-section {
+        grid-template-columns: 1fr 1fr;
+    }
+}
