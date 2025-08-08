@@ -32,6 +32,39 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize typewriter effect on the landing page
     setupTypewriter('.typewriter-text');
     
+    // Logout confirmation handling
+    const signOutBtn = document.querySelector('.signout-button');
+    const logoutOverlay = document.querySelector('.logout-modal-overlay');
+    const cancelLogout = document.querySelector('.logout-cancel');
+    const confirmLogout = document.querySelector('.logout-confirm');
+
+    if (signOutBtn && logoutOverlay && cancelLogout && confirmLogout) {
+        // Show modal
+        signOutBtn.addEventListener('click', () => {
+            logoutOverlay.style.display = 'flex';
+        });
+
+        // Cancel
+        cancelLogout.addEventListener('click', () => {
+            logoutOverlay.style.display = 'none';
+        });
+
+        // Confirm
+        confirmLogout.addEventListener('click', () => {
+            localStorage.clear();
+            sessionStorage.clear();
+            window.location.href = './auth/signin.html';
+        });
+
+        // Close modal when clicking outside
+        logoutOverlay.addEventListener('click', (e) => {
+            if (e.target === logoutOverlay) {
+                logoutOverlay.style.display = 'none';
+            }
+        });
+    }
+
+
     // Project details modal setup
     const modalOverlay = document.querySelector('.modal-overlay');
     if (modalOverlay) {
@@ -104,17 +137,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Sign out functionality (if a sign-out button exists)
-    const signoutButton = document.querySelector('.signout-button');
-    if (signoutButton) {
-        signoutButton.addEventListener('click', async () => {
-            const { signout } = await import('./modules/auth.js');
-            const result = await signout();
-            if (result.success) {
-                window.location.href = '../auth/signin.html';
-            }
-        });
-    }
     const navToggle = document.querySelector('.nav-toggle');
     const navLinks = document.querySelector('.nav-links');
      if (navToggle && navLinks) {

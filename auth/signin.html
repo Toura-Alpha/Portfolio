@@ -23,11 +23,11 @@
             const googleButton = document.getElementById('google-signin');
 
             // Redirect if already signed in
-            // authStateListener(user => {
-            //     if (user) {
-            //         window.location.href = "../index.html";
-            //     }
-            // });
+            authStateListener(user => {
+                if (user) {
+                    window.location.href = "../pages/hero.html";
+                }
+            });
 
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
@@ -35,7 +35,7 @@
 
                 try {
                     const user = await loginWithEmail(emailInput.value, passwordInput.value);
-                    window.location.href = "../index.html";
+                    window.location.href = "../auth/signin.html?redirect=false";
                 } catch (error) {
                     errorMessageDiv.textContent = error.message;
                     errorMessageDiv.style.display = 'block';
@@ -46,7 +46,7 @@
                 errorMessageDiv.style.display = 'none';
                 try {
                     const user = await loginWithGoogle();
-                    window.location.href = "../index.html";
+                    window.location.href = "../auth/signin.html?redirect=false";
                 } catch (error) {
                     errorMessageDiv.textContent = error.message;
                     errorMessageDiv.style.display = 'block';
