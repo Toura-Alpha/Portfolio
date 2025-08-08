@@ -1,68 +1,205 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <!-- Main and module CSS -->
-    <link rel="stylesheet" href="./css/style.css">
-    <!-- Fonts and icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <script type="module" src="./js/app.js" defer></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Welcome to My Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+        /* Reset and base styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        p.lead {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            line-height: 1.5;
+            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        button {
+            background: #fff;
+            color: #764ba2;
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 15px rgba(118, 75, 162, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button:hover {
+            background: #5a3e99;
+            color: #fff;
+            box-shadow: 0 15px 20px rgba(90, 62, 153, 0.6);
+            transform: translateY(-3px);
+        }
+
+        button:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(118, 75, 162, 0.6);
+        }
+
+        /* Animated underline effect */
+        button::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: #764ba2;
+            bottom: 0;
+            left: -100%;
+            transition: left 0.3s ease;
+            border-radius: 0 0 50px 50px;
+        }
+
+        button:hover::after {
+            left: 0;
+        }
+
+        /* Interactive background circles */
+        .background-circles {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 120vw;
+            height: 120vh;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.15;
+            animation: float 6s ease-in-out infinite alternate;
+        }
+
+        .circle1 {
+            width: 300px;
+            height: 300px;
+            background: #ff6b6b;
+            top: 10%;
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .circle2 {
+            width: 400px;
+            height: 400px;
+            background: #f7d794;
+            top: 70%;
+            left: 25%;
+            animation-delay: 2s;
+        }
+
+        .circle3 {
+            width: 350px;
+            height: 350px;
+            background: #6a89cc;
+            top: 40%;
+            left: 75%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0);
+            }
+
+            100% {
+                transform: translateY(-20px) translateX(20px);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            p.lead {
+                font-size: 1rem;
+                max-width: 90%;
+            }
+
+            button {
+                width: 100%;
+                padding: 1rem;
+            }
+
+            .btn-group {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <!-- Preloader -->
-    <div id="preloader" class="flex-center">
-        <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="30" cy="30" r="28" stroke="var(--primary-accent)" stroke-width="4" stroke-linecap="round"
-                stroke-dasharray="180" stroke-dashoffset="180">
-                <animate attributeName="stroke-dashoffset" from="180" to="0" dur="2s" repeatCount="indefinite" />
-            </circle>
-        </svg>
+    <div class="background-circles" aria-hidden="true">
+        <div class="circle circle1"></div>
+        <div class="circle circle2"></div>
+        <div class="circle circle3"></div>
     </div>
 
-    <!-- Animated background gradient -->
-    <div class="background-effect"></div>
-
-    <main class="landing-page">
-        <header class="header landing-header">
-            <a href="#" class="logo">My Portfolio</a>
-            <nav class="nav-links">
-                <a href="index.html" class="active">Home</a>
-                <a href="./pages/about.html">About</a>
-                <a href="./pages/skills.html">Skills</a>
-                <a href="./pages/projects.html">Projects</a>
-                <a href="./pages/contact.html">Contact</a>
-            </nav>
-            <button class="theme-toggle" aria-label="Toggle theme">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path
-                        d="M12 2a10 10 0 1010 10A10 10 0 0012 2zM12 22a9.999 9.999 0 009.9-10h-20A9.999 9.999 0 0012 22z" />
-                </svg>
-            </button>
-        </header>
-        <div class="landing-content">
-            <h1 class="tagline">
-                I'm a <span class="typewriter-text"></span>
-            </h1>
-            <p class="landing-subtext">
-                Welcome to my digital space. Explore my work, skills, and journey as a developer.
-            </p>
-            <a href="./pages/hero.html" class="cta-button">Explore My Work</a>
-            <div class="landing-socials">
-                <a href="https://github.com/" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/" target="_blank" aria-label="LinkedIn"><i
-                        class="fab fa-linkedin"></i></a>
-                <a href="https://twitter.com/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            </div>
+    <main role="main" aria-label="Landing page content">
+        <h1>Welcome to My Portfolio</h1>
+        <p class="lead">
+            Discover my projects, skills, and experience. Join me on this journey to explore creativity and innovation.
+        </p>
+        <div class="btn-group">
+            <button id="loginBtn" aria-label="Go to login page">Login</button>
+            <button id="signupBtn" aria-label="Go to signup page">Sign Up</button>
         </div>
     </main>
+
+    <script>
+        document.getElementById('loginBtn').addEventListener('click', () => {
+            window.location.href = './auth/signin.html';
+        });
+
+        document.getElementById('signupBtn').addEventListener('click', () => {
+            window.location.href = 'auth/signup.html';
+        });
+    </script>
 </body>
 
 </html>
