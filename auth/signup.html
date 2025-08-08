@@ -11,66 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <script type="module" src="../js/app.js" defer></script>
-    <script type="module">
-        import { registerWithEmail, loginWithGoogle, authStateListener } from '../js/modules/auth.js';
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const form = document.querySelector('.auth-form');
-            const emailInput = document.getElementById('email');
-            const passwordInput = document.getElementById('password');
-            const passwordConfirmInput = document.getElementById('password-confirm');
-            const errorMessageDiv = document.getElementById('error-message');
-            const googleButton = document.getElementById('google-signin');
-
-            // Redirect if already signed in
-            authStateListener(user => {
-                if (user) {
-                    window.location.href = "../index.html";
-                }
-            });
-
-            const validatePassword = () => {
-                if (passwordInput.value !== passwordConfirmInput.value) {
-                    errorMessageDiv.textContent = 'Passwords do not match.';
-                    errorMessageDiv.style.display = 'block';
-                    return false;
-                }
-                if (passwordInput.value.length < 6) {
-                    errorMessageDiv.textContent = 'Password must be at least 6 characters.';
-                    errorMessageDiv.style.display = 'block';
-                    return false;
-                }
-                return true;
-            };
-
-            form.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                errorMessageDiv.style.display = 'none';
-
-                if (!validatePassword()) return;
-
-                try {
-                    const user = await registerWithEmail(emailInput.value, passwordInput.value);
-                    window.location.href = "../index.html";
-                } catch (error) {
-                    errorMessageDiv.textContent = error.message;
-                    errorMessageDiv.style.display = 'block';
-                }
-            });
-
-            googleButton.addEventListener('click', async () => {
-                errorMessageDiv.style.display = 'none';
-                try {
-                    const user = await loginWithGoogle();
-                    window.location.href = "../index.html";
-                } catch (error) {
-                    errorMessageDiv.textContent = error.message;
-                    errorMessageDiv.style.display = 'block';
-                }
-            });
-        });
-    </script>
+    
 </head>
 
 <body class="auth-page">
@@ -99,5 +40,66 @@
         <p class="auth-switch-link">Already have an account? <a href="signin.html">Sign In</a></p>
     </div>
 </body>
+
+<script type="module" src="../js/app.js" defer></script>
+<script type="module">
+    import { registerWithEmail, loginWithGoogle, authStateListener } from '../js/modules/auth.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.querySelector('.auth-form');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const passwordConfirmInput = document.getElementById('password-confirm');
+        const errorMessageDiv = document.getElementById('error-message');
+        const googleButton = document.getElementById('google-signin');
+
+        // Redirect if already signed in
+        authStateListener(user => {
+            if (user) {
+                window.location.href = "../index.html";
+            }
+        });
+
+        const validatePassword = () => {
+            if (passwordInput.value !== passwordConfirmInput.value) {
+                errorMessageDiv.textContent = 'Passwords do not match.';
+                errorMessageDiv.style.display = 'block';
+                return false;
+            }
+            if (passwordInput.value.length < 6) {
+                errorMessageDiv.textContent = 'Password must be at least 6 characters.';
+                errorMessageDiv.style.display = 'block';
+                return false;
+            }
+            return true;
+        };
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            errorMessageDiv.style.display = 'none';
+
+            if (!validatePassword()) return;
+
+            try {
+                const user = await registerWithEmail(emailInput.value, passwordInput.value);
+                window.location.href = "../index.html";
+            } catch (error) {
+                errorMessageDiv.textContent = error.message;
+                errorMessageDiv.style.display = 'block';
+            }
+        });
+
+        googleButton.addEventListener('click', async () => {
+            errorMessageDiv.style.display = 'none';
+            try {
+                const user = await loginWithGoogle();
+                window.location.href = "../index.html";
+            } catch (error) {
+                errorMessageDiv.textContent = error.message;
+                errorMessageDiv.style.display = 'block';
+            }
+        });
+    });
+</script>
 
 </html>

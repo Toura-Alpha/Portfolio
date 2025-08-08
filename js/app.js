@@ -8,6 +8,14 @@ import { setupTypewriter, hidePreloader } from './modules/utils.js';
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
 import { auth } from './modules/firebase.js';
 
+
+    document.getElementById('loginBtn').addEventListener('click', () => {
+        window.location.href = './auth/signin.html?redirect=false';
+    });
+    document.getElementById('signupBtn').addEventListener('click', () => {
+        window.location.href = './auth/signup.html?redirect=false';
+    });
+
 document.addEventListener('DOMContentLoaded', () => {
     // Hide the preloader once the page content is loaded
     window.onload = hidePreloader;
@@ -143,5 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
       navToggle.addEventListener('click', () => {
       navLinks.classList.toggle('open');
     });
+
+    
   }
 });
