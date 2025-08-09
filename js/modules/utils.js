@@ -1,63 +1,51 @@
 /*
  * js/modules/utils.js
- * This file contains utility functions like the typewriter effect and preloader management.
+ * Utility functions like typewriter effect and preloader handling.
  */
 
 export const setupTypewriter = (selector) => {
-  const typewriterText = document.querySelector(selector);
-  if (!typewriterText) return;
+    const element = document.querySelector(selector);
+    if (!element) return;
 
-  const lines = [
-    "Developer",
-    "Problem Solver",
-    "Innovator"
-  ];
-  let lineIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-  let typingSpeed = 150;
-  let pauseTime = 1500;
+    const lines = ["Developer", "Problem Solver", "Innovator"];
+    let lineIndex = 0, charIndex = 0, isDeleting = false;
 
-  function type() {
-    const currentLine = lines[lineIndex];
-    if (isDeleting) {
-      typewriterText.textContent = currentLine.substring(0, charIndex - 1);
-      charIndex--;
-    } else {
-      typewriterText.textContent = currentLine.substring(0, charIndex + 1);
-      charIndex++;
-    }
+    const type = () => {
+        const currentLine = lines[lineIndex];
+        element.textContent = isDeleting
+            ? currentLine.substring(0, charIndex--)
+            : currentLine.substring(0, charIndex++);
 
-    if (!isDeleting && charIndex === currentLine.length + 1) {
-      isDeleting = true;
-      typingSpeed = 50;
-      setTimeout(type, pauseTime);
-    } else if (isDeleting && charIndex === 0) {
-      isDeleting = false;
-      lineIndex = (lineIndex + 1) % lines.length;
-      typingSpeed = 150;
-      setTimeout(type, 500);
-    } else {
-      setTimeout(type, typingSpeed);
-    }
-  }
-  type();
+        if (!isDeleting && charIndex === currentLine.length + 1) {
+            isDeleting = true;
+            setTimeout(type, 1500);
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            lineIndex = (lineIndex + 1) % lines.length;
+            setTimeout(type, 500);
+        } else {
+            setTimeout(type, isDeleting ? 50 : 150);
+        }
+    };
+    type();
 };
 
 export const hidePreloader = () => {
     const preloader = document.getElementById('preloader');
-    if (preloader) {
-        preloader.style.opacity = '0';
-        setTimeout(() => preloader.style.display = 'none', 500);
-    }
+    if (!preloader) return;
+    preloader.style.opacity = '0';
+    setTimeout(() => preloader.style.display = 'none', 500);
 };
 
 export const createSkillBar = (skillName, level) => {
-  const container = document.createElement('div');
-  container.classList.add('skill-progress-bar');
-  const fill = document.createElement('div');
-  fill.classList.add('skill-progress-fill');
-  fill.style.setProperty('--skill-level', `${level}%`);
-  container.appendChild(fill);
-  return container;
+    const container = document.createElement('div');
+    container.className = 'skill-progress-bar';
+    container.title = `${skillName} - ${level}%`;
+
+    const fill = document.createElement('div');
+    fill.className = 'skill-progress-fill';
+    fill.style.setProperty('--skill-level', `${level}%`);
+
+    container.appendChild(fill);
+    return container;
 };
