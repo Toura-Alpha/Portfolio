@@ -3,14 +3,14 @@
  * This is the main stylesheet that imports all other CSS modules.
  */
 
-@import url('modules/_global.css');
-@import url('modules/_layout.css');
-@import url('modules/_components.css');
-@import url('modules/_animations.css');
-@import url('modules/_projects.css');
-@import url('modules/_about.css');
-@import url('modules/_contact.css');
-@import url('modules/_skills.css');
+@import url('./modules/_global.css');
+@import url('./modules/_layout.css');
+@import url('./modules/_components.css');
+@import url('./modules/_animations.css');
+@import url('./modules/_projects.css');
+@import url('./modules/_about.css');
+@import url('./modules/_contact.css');
+@import url('./modules/_skills.css');
 
 .logout-modal-overlay {
     position: fixed;
